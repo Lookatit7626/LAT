@@ -12,13 +12,13 @@ game.Players.PlayerAdded:connect(function(player)
 	Duration = 16;
 	game:GetService("Players").ChilliChicken3.DisplayName = "[⭐] Chilli" 
 	end
-        if player.Name == 'GermanWaitz' then
+        if player.Name == 'Number12_KOKC' then
 		game:GetService("StarterGui"):SetCore("SendNotification", { 
 		Title = "Co-Owner Joined!";
-		Text = "Vhub System: Look at it Aka Vhub Co-Owner Joined This Server!";
+		Text = "Vhub System: Quandale The Dinglish Aka Vhub Co-Owner Joined This Server!";
 		Icon = "rbxthumb://type=Asset&id=9408318893&w=150&h=150"})
 	Duration = 16;
-     	game:GetService("Players").GermanWaitz.DisplayName = "[⭐] German" 
+     	game:GetService("Players").Number12_KOKC.DisplayName = "[⭐] Quan" 
         end
         if player.Name == 'itsyaboivincentt' then
 		game:GetService("StarterGui"):SetCore("SendNotification", { 
