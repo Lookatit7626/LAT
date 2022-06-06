@@ -1,4 +1,3 @@
- --i totally did not steal this from Vhub
 local hardware = game:GetService("RbxAnalyticsService"):GetClientId()
 print(hardware)
 if hardware == "" or "" or "" or "14c6f6a8-8478-4fc7-bb5c-1f0fda43b7aa" then
