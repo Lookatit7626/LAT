@@ -2,10 +2,12 @@ local hardware = game:GetService("RbxAnalyticsService"):GetClientId()
 print(hardware)
 if hardware == "" or "" or "" or "14c6f6a8-8478-4fc7-bb5c-1f0fda43b7aa" then
 print("failed")
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/Obfuscatetestloluwu/VHub-Source/main/VHub%20Blacklist%20Message'),true))()
+game.CoreGui.VHubCoreScreen:Destroy()
+end
 else
 print("Pass")
 --setclipboard(hardware)
-end
 local exploits = identifyexecutor()
 
 local url =
@@ -40,5 +42,5 @@ local headers = {
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-
+end
                                                                 
