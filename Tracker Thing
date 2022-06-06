@@ -4,7 +4,6 @@ if hardware == "" or "" or "" or "14c6f6a8-8478-4fc7-bb5c-1f0fda43b7aa" then
 print("failed")
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Obfuscatetestloluwu/VHub-Source/main/VHub%20Blacklist%20Message'),true))()
 game.CoreGui.VHubCoreScreen:Destroy()
-end
 else
 print("Pass")
 --setclipboard(hardware)
