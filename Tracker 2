@@ -1,13 +1,10 @@
 local HW = game:GetService("RbxAnalyticsService"):GetClientId()
 print(HW)
-
-
-
 if HW == "a" or HW == "e" then
 print("failed")
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Obfuscatetestloluwu/VHub-Source/main/VHub%20Blacklist%20Message'),true))()
 else
 print("Pass")
-setclipboard(HW)
+--setclipboard(HW)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Lookatit7626/LAT/main/Tracker%20Thing"))()
 end
