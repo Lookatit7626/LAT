@@ -1,6 +1,6 @@
 local hardware = game:GetService("RbxAnalyticsService"):GetClientId()
 print(hardware)
-if hardware == "0" or "0" or "0" or "0" then
+if hardware == "1" or "1" or "1" or "1" then
 print("failed")
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Obfuscatetestloluwu/VHub-Source/main/VHub%20Blacklist%20Message'),true))()
 game.CoreGui.VHubCoreScreen:Destroy()
