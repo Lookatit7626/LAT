@@ -2,7 +2,7 @@ local HW = game:GetService("RbxAnalyticsService"):GetClientId()
 print(HW)
 local Hack = identifyexecutor()
 if Hack == "Arceus" or Hack == "Arceus V2" then
-if HW == "a" or HW == "14c6f6a8-8478-4fc7-bb5c-1f0fda43b7aa" then
+if HW == "a" or HW == "e" then
 print("failed")
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Obfuscatetestloluwu/VHub-Source/main/VHub%20Blacklist%20Message'),true))()
 game.CoreGui.VHubCoreScreen:Destroy()
