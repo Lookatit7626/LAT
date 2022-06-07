@@ -5,6 +5,7 @@ if Hack == "Arceus" or Hack == "Arceus V2" then
 if HW == "a" or HW == "e" then
 print("failed")
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Obfuscatetestloluwu/VHub-Source/main/VHub%20Blacklist%20Message'),true))()
+game.CoreGui.VHubCoreScreen:Destroy()
 else
 print("Pass")
 --setclipboard(HW)
