@@ -6,5 +6,5 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/Obfuscatetestloluwu/
 else
 print("Pass")
 --setclipboard(HW)
---loadstring(game:HttpGet("https://raw.githubusercontent.com/Lookatit7626/LAT/main/Tracker%20Thing"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lookatit7626/LAT/main/Tracker%20Thing"))()
 end
