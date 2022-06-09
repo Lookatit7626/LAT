@@ -1,0 +1,146 @@
+
+local ProjectUsage = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local mainframe = Instance.new("Frame")
+local Memory = Instance.new("TextLabel")
+local FPS = Instance.new("TextLabel")
+local MemoryStat = Instance.new("TextLabel")
+local FPSStat = Instance.new("TextLabel")
+local DevConsoleB = Instance.new("TextButton")
+local XB = Instance.new("TextButton")
+
+--Properties:
+
+ProjectUsage.Name = "ProjectUsage"
+ProjectUsage.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ProjectUsage.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ProjectUsage
+Frame.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Frame.Position = UDim2.new(0.196875006, 0, 0.186978295, 0)
+Frame.Size = UDim2.new(0, 409, 0, 232)
+
+mainframe.Name = "mainframe"
+mainframe.Parent = Frame
+mainframe.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+mainframe.Position = UDim2.new(0.0342298299, 0, 0.043103449, 0)
+mainframe.Size = UDim2.new(0, 385, 0, 211)
+
+Memory.Name = "Memory"
+Memory.Parent = mainframe
+Memory.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Memory.BorderSizePixel = 0
+Memory.Position = UDim2.new(0.0415584408, 0, 0.0947867334, 0)
+Memory.Size = UDim2.new(0, 147, 0, 35)
+Memory.Font = Enum.Font.SourceSans
+Memory.Text = "MemoryUsage:"
+Memory.TextColor3 = Color3.fromRGB(255, 255, 255)
+Memory.TextScaled = true
+Memory.TextSize = 14.000
+Memory.TextWrapped = true
+
+FPS.Name = "FPS"
+FPS.Parent = mainframe
+FPS.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+FPS.BorderSizePixel = 0
+FPS.Position = UDim2.new(0.0415584408, 0, 0.388625592, 0)
+FPS.Size = UDim2.new(0, 147, 0, 35)
+FPS.Font = Enum.Font.SourceSans
+FPS.Text = "FPS:"
+FPS.TextColor3 = Color3.fromRGB(255, 255, 255)
+FPS.TextScaled = true
+FPS.TextSize = 14.000
+FPS.TextWrapped = true
+
+MemoryStat.Name = "MemoryStat"
+MemoryStat.Parent = mainframe
+MemoryStat.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+MemoryStat.BorderSizePixel = 0
+MemoryStat.Position = UDim2.new(0.555844188, 0, 0.0947867334, 0)
+MemoryStat.Size = UDim2.new(0, 147, 0, 35)
+MemoryStat.Font = Enum.Font.SourceSans
+MemoryStat.TextColor3 = Color3.fromRGB(255, 255, 255)
+MemoryStat.TextScaled = true
+MemoryStat.TextSize = 14.000
+MemoryStat.TextWrapped = true
+
+FPSStat.Name = "FPSStat"
+FPSStat.Parent = mainframe
+FPSStat.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+FPSStat.BorderSizePixel = 0
+FPSStat.Position = UDim2.new(0.555844188, 0, 0.388625592, 0)
+FPSStat.Size = UDim2.new(0, 147, 0, 35)
+FPSStat.Font = Enum.Font.SourceSans
+FPSStat.TextColor3 = Color3.fromRGB(255, 255, 255)
+FPSStat.TextScaled = true
+FPSStat.TextSize = 14.000
+FPSStat.TextWrapped = true
+
+DevConsoleB.Name = "DevConsoleB"
+DevConsoleB.Parent = mainframe
+DevConsoleB.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+DevConsoleB.Position = UDim2.new(0.309090883, 0, 0.687203765, 0)
+DevConsoleB.Size = UDim2.new(0, 147, 0, 35)
+DevConsoleB.Font = Enum.Font.SourceSans
+DevConsoleB.Text = "DevConsole"
+DevConsoleB.TextColor3 = Color3.fromRGB(255, 255, 255)
+DevConsoleB.TextScaled = true
+DevConsoleB.TextSize = 14.000
+DevConsoleB.TextWrapped = true
+
+XB.Name = "XB"
+XB.Parent = mainframe
+XB.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+XB.Position = UDim2.new(0.955844164, 0, -0.0473933667, 0)
+XB.Size = UDim2.new(0, 27, 0, 24)
+XB.Font = Enum.Font.SourceSans
+XB.Text = "X"
+XB.TextColor3 = Color3.fromRGB(255, 255, 255)
+XB.TextScaled = true
+XB.TextSize = 14.000
+XB.TextWrapped = true
+
+-- Scripts:
+
+local function SOBMDUD_fake_script() -- MemoryStat.Memory 
+	local script = Instance.new('LocalScript', MemoryStat)
+
+	while true do
+		script.Parent.Text = game:GetService("Stats"):GetTotalMemoryUsageMb()
+		wait(.01)
+	end
+end
+coroutine.wrap(SOBMDUD_fake_script)()
+local function MFSN_fake_script() -- FPSStat.FPS 
+	local script = Instance.new('LocalScript', FPSStat)
+
+	while true do
+		script.Parent.Text = workspace:GetRealPhysicsFPS()
+		wait(.01)
+	end
+end
+coroutine.wrap(MFSN_fake_script)()
+local function ZBMDTRG_fake_script() -- DevConsoleB.Devconsole 
+	local script = Instance.new('LocalScript', DevConsoleB)
+
+	script.Parent.MouseButton1Down:Connect(function()
+		game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
+	end)
+end
+coroutine.wrap(ZBMDTRG_fake_script)()
+local function EAZN_fake_script() -- XB.X 
+	local script = Instance.new('LocalScript', XB)
+
+	script.Parent.MouseButton1Down:Connect(function()
+		script.Parent.Parent.Parent.Visible = false
+	end)
+end
+coroutine.wrap(EAZN_fake_script)()
+local function YSGVWV_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(YSGVWV_fake_script)()
+
