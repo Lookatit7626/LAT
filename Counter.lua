@@ -28,6 +28,12 @@ local UICorner_7 = Instance.new("UICorner")
 local Errors = Instance.new("TextButton")
 local UICorner_8 = Instance.new("UICorner")
 
+local function StringtoTable(s)
+   local t = {}
+   s:gsub(".", function(c) table.insert(t, c) return c end)
+   return t
+end
+
 function Chat(Message)
 	Message = tostring(Message)
 	local suc, err = pcall(function()
@@ -197,7 +203,7 @@ Captials.TextWrapped = true
 UICorner_7.CornerRadius = UDim.new(0, 3)
 UICorner_7.Parent = Captials
 
-Errors.Name = "Reverse"
+Errors.Name = "Type"
 Errors.Parent = Backframe
 Errors.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Errors.BackgroundTransparency = 0.900
@@ -206,7 +212,7 @@ Errors.BorderSizePixel = 0
 Errors.Position = UDim2.new(0.0306513403, 0, 0.787234068, 0)
 Errors.Size = UDim2.new(0.471264362, 0, 0.141843975, 0)
 Errors.Font = Enum.Font.SourceSansBold
-Errors.Text = "Reverse : False"
+Errors.Text = "Type : Normal"
 Errors.TextColor3 = Color3.fromRGB(255, 255, 255)
 Errors.TextScaled = true
 Errors.TextSize = 14.000
@@ -251,7 +257,7 @@ local NumberToWordsTable = {
 
 local CountNumber = 0
 local CapitalsVal = 1 -- 1 : True, 2 : Grammer, 3 : None
-local Reverse = false -- Some Fuckers like to do it in Reverse
+local Reverse = 0 -- 0 : Normal, 1 : Reverse Order, 2 : Reverse Text, 3 : Hell, 4 : Death
 local HumaneDelayBool = true
 
 HumaneDelay.MouseButton1Click:Connect(function()
@@ -264,11 +270,20 @@ HumaneDelay.MouseButton1Click:Connect(function()
 end)
 
 Errors.MouseButton1Click:Connect(function()
-    Reverse = not Reverse
-    if Reverse then
-        Errors.Text = "Reverse : True"
-    else
-        Errors.Text = "Reverse : False"
+    Reverse = Reverse + 1
+    if Reverse > 4 then
+        Reverse = 0
+    end
+    if Reverse == 4 then
+        Errors.Text = "Type : Death"
+    elseif Reverse == 3 then
+        Errors.Text = "Type : Hell"
+    elseif Reverse == 2 then
+        Errors.Text = "Type : Reverse Text"
+    elseif Reverse == 1 then
+        Errors.Text = "Type : Reverse Order"
+    elseif Reverse == 0 then
+        Errors.Text = "Type : Normal"
     end
 end)
 
@@ -292,7 +307,7 @@ local function SetCountFunc(SetCountNumber)
 end
 
 SetCount.MouseButton1Click:Connect(function()
-    local NumbToSet = tonumber(SetCounterTB.Text) - 1
+    local NumbToSet = tonumber(SetCounterTB.Text)
     if NumbToSet == 0 or NumbToSet < 0 then
         NumbToSet = 1
     end
@@ -374,21 +389,88 @@ local function CountSay()
         StringFormat = StringFormat
     end
     
-    if HumaneDelayBool then
-        wait( string.len(StringFormat) / 8  + .12)
-    end
     
 	return StringFormat
 end
 
+
+
+-- 0 : Normal, 1 : Reverse Order, 2 : Reverse Text, 3 : Hell, 4 : Death
 Count.MouseButton1Click:Connect(function()
-    if Reverse then
+    if Reverse == 1 then
+        if CountNumber > 0 then
+            SetCountFunc(CountNumber - 1)
+        else
+            return warn("False")
+        end
+    else
+        SetCountFunc(CountNumber + 1) 
+    end
+    
+    local Text = CountSay()
+    
+    if Reverse == 1 then
 	    if CountNumber > 0 then
-	        SetCountFunc(CountNumber - 1)
+	        
+	        if HumaneDelayBool then
+                task.wait( string.len(Text) / 8  + .12)
+	        end
 	        Chat(CountSay())
+	        
 	    end
-	else
-	   SetCountFunc(CountNumber + 1) 
+    elseif Reverse == 2 then
+        local RText = ""
+        local TextTab = StringtoTable(Text)
+        for i ,v in pairs(TextTab) do
+            RText = RText .. TextTab[#TextTab - i + 1]
+            
+            if HumaneDelayBool then
+                task.wait( string.len(Text) / 6  + .08)
+            end
+        end
+        
+        Chat(RText)
+    elseif Reverse == 3 then
+        local TextTab = StringtoTable(Text)
+        for i ,v in pairs(TextTab) do
+            if HumaneDelayBool then
+               task.wait(.8 + math.random(20,60)/100) 
+            end
+            Chat(v)
+        end
+        
+        if HumaneDelayBool then
+            task.wait( string.len(Text) / 5  + .08)
+        end
+        
+        Chat(Text)
+        task.wait(0.05)
+    elseif Reverse == 4 then
+        local RText = ""
+        local TextTab = StringtoTable(Text)
+        for i ,v in pairs(TextTab) do
+            RText = RText .. TextTab[#TextTab - i + 1]
+            if HumaneDelayBool then
+                task.wait(math.random(10,30)/100)
+            end
+        end
+        
+        TextTab = StringtoTable(RText)
+        for i ,v in pairs(TextTab) do
+            if HumaneDelayBool then
+               task.wait(1.5 + string.len(Text) / 8 + math.random(19,30)/100) 
+            end
+            Chat(v)
+        end
+        
+        if HumaneDelayBool then
+            task.wait( string.len(Text) / 3  + .08 + 2.3)
+        end
+        
+        Chat(RText)
+        task.wait(0.05)
+    else
+        task.wait( string.len(Text) / 7  + .08)
 	   Chat(CountSay())
 	end
 end)
