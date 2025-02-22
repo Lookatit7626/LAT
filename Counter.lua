@@ -269,11 +269,13 @@ HumaneDelay.MouseButton1Click:Connect(function()
     end
 end)
 
+local typechanged = false
 Errors.MouseButton1Click:Connect(function()
     Reverse = Reverse + 1
     if Reverse > 4 then
         Reverse = 0
     end
+    typechanged = true
     if Reverse == 4 then
         Errors.Text = "Type : Death"
     elseif Reverse == 3 then
@@ -397,6 +399,7 @@ end
 
 -- 0 : Normal, 1 : Reverse Order, 2 : Reverse Text, 3 : Hell, 4 : Death
 Count.MouseButton1Click:Connect(function()
+  typechanged = false
     if Reverse == 1 then
         if CountNumber > 0 then
             SetCountFunc(CountNumber - 1)
@@ -433,8 +436,11 @@ Count.MouseButton1Click:Connect(function()
     elseif Reverse == 3 then
         local TextTab = StringtoTable(Text)
         for i ,v in pairs(TextTab) do
+          if typechanged then
+            break
+          end
             if HumaneDelayBool then
-               task.wait(.8 + math.random(20,60)/100) 
+               task.wait(1.8 + math.random(20,60)/100) 
             end
             Chat(v)
         end
@@ -442,8 +448,9 @@ Count.MouseButton1Click:Connect(function()
         if HumaneDelayBool then
             task.wait( string.len(Text) / 5  + .08)
         end
-        
-        Chat(Text)
+        if not typechanged then
+          Chat(Text)
+        end
         task.wait(0.05)
     elseif Reverse == 4 then
         local RText = ""
@@ -457,8 +464,11 @@ Count.MouseButton1Click:Connect(function()
         
         TextTab = StringtoTable(RText)
         for i ,v in pairs(TextTab) do
+          if typechanged then
+            break
+          end
             if HumaneDelayBool then
-               task.wait(1.5 + string.len(Text) / 8 + math.random(19,30)/100) 
+               task.wait(2.1 + string.len(Text) / 8 + math.random(19,30)/100) 
             end
             Chat(v)
         end
@@ -466,8 +476,9 @@ Count.MouseButton1Click:Connect(function()
         if HumaneDelayBool then
             task.wait( string.len(Text) / 3  + .08 + 2.3)
         end
-        
-        Chat(RText)
+        if not typechanged then
+          Chat(RText)
+        end
         task.wait(0.05)
     else
         task.wait( string.len(Text) / 7  + .08)
