@@ -440,13 +440,13 @@ Count.MouseButton1Click:Connect(function()
             break
           end
             if HumaneDelayBool then
-               task.wait(1.8 + math.random(20,60)/100) 
+               task.wait(2.2 + math.random(20,60)/100) 
             end
             Chat(v)
         end
         
         if HumaneDelayBool then
-            task.wait( string.len(Text) / 5  + .08)
+            task.wait( string.len(Text) / 4  + 1.08)
         end
         if not typechanged then
           Chat(Text)
@@ -468,7 +468,7 @@ Count.MouseButton1Click:Connect(function()
             break
           end
             if HumaneDelayBool then
-               task.wait(2.1 + string.len(Text) / 8 + math.random(19,30)/100) 
+               task.wait(2.5 + string.len(Text) / 8 + math.random(19,30)/100) 
             end
             Chat(v)
         end
